@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+
+    <link
+      href="https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+
+    <title></title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html,body {
+            width: 100vw;
+            height: 100vw;
+            overflow: hidden;
+        }
+
+        body {
+            font-size: clamp(1.5rem, 5vw + 1.8rem, 2.5rem);
+        }
+
+        .typora-export-content {
+            width: 100vw;
+            height: 100vh;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+    scroll-snap-stop: always;
+        }
+
+        section {
+            width: 100vw;
+            height: 100vh;
+            scroll-snap-align: start;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        section img {
+            max-height: 70vh;
+            aspect-ratio: 4 / 3;
+            object-fit: contain;
+        }
+
+        section p {
+            max-width: 80vw;
+            font-size: clamp(1rem, 3vw + 1.25rem, 1.5rem);
+            text-align: center;
+        }
+
+        .code {
+            max-width: 80vw;
+  margin-top: 1rem;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 1px 1px rgb(0 0 0 / 30%);
+  border-top: 5px solid #00aa4d;
+  width: 100%;
+  font-size: 1rem;
+  
+}
+
+.code pre {
+  display: flex;
+}
+
+.code pre code.hljs {
+  width: 100%;
+  backdrop-filter: blur(8px);
+  mix-blend-mode: color-dodge;
+  overflow-y: auto;
+    scroll-behavior: smooth;
+    overscroll-behavior: contain;
+    max-height: 90vh;
+}
+
+section mark {
+    --mark-color: #f8db75;
+    --mark-skew: 0.25em;
+    --mark-height: 1em;
+    --mark-overlap: 0.3em;
+
+    margin-inline: calc(var(--mark-overlap) * -1);
+    padding-inline: var(--mark-overlap);
+
+    background-color: transparent;
+    background-image:
+        linear-gradient(
+            to bottom right,
+            transparent 50%,
+            var(--mark-color) 50%
+        ),
+        linear-gradient(
+            var(--mark-color),
+            var(--mark-color)
+        ),
+        linear-gradient(
+            to top left,
+            transparent 50%,
+            var(--mark-color) 50%
+        )
+    ;
+    background-size:
+        var(--mark-skew) var(--mark-height),
+        calc(100% - var(--mark-skew) * 2 + 1px) var(--mark-height),
+        var(--mark-skew) var(--mark-height)
+    ;
+    background-position:
+        left center,
+        center,
+        right center
+    ;
+    background-repeat: no-repeat;
+    color: inherit;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    text-shadow:2px 2px 0 rgb(255 255 255 / 50%), -2px -2px 0 rgb(255 255 255 / 50%);
+}
+
+        /* .typora-export-content:fullscreen {
+            width: 100vw;
+            height: 100vh;
+            overflow-y: scroll !important;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+    scroll-snap-stop: always;
+        }
+
+        section:fullscreen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #fff;
+  color: #000;
+} */
+
+.line-through span:nth-last-child(3),
+.line-through span:nth-last-child(2),
+    .line-through span:nth-last-child(1){
+    text-decoration: line-through;
+}
+    </style>
+   
+  </head>
+  <body class="typora-export">
+    <div class="typora-export-content">
+        <!-- Slider 1 -->
+        <section>
+            <h1>CSS In 2022</h1>
+            <p>@大漠</p>
+        </section>
+        <!-- Slider 2 -->
+        <section>
+            <img
+            src="./images/fig-01.webp"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+          <p>
+            <a href="https://twitter.com/bramus"><span>@Bramus</span></a
+            ><span>
+              年初在 Twitter 上发了一条信息，他整理了一份 2022
+              年的将会出现在浏览器的 CSS 清单</span
+            >
+            </p>
+        </section>
+        <!-- Slider 3 -->
+        <section>
+            <h2>CSS Container Queries （容器查询）</h2>
+        </section>
+        <!-- Slider 4 -->
+        <section>
+            <img
+            src="./images/fig-02.webp"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+            <p>CSS Media Queries vs. CSS Container Queries</p>
+        </section>
+        <!-- Slider 5 -->
+        <section>
+            <iframe height="650" style="width: 100%;height: 100%;" scrolling="no" title="现代 Web 布局 451#: Responsive Card with CSS Container Queries" src="https://codepen.io/airen/embed/QWBKdzP?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                See the Pen <a href="https://codepen.io/airen/pen/QWBKdzP">
+                现代 Web 布局 451#: Responsive Card with CSS Container Queries</a> by Airen (<a href="https://codepen.io/airen">@airen</a>)
+                on <a href="https://codepen.io">CodePen</a>.
+              </iframe>
+        </section>
+        <section>
+<div class="code">
+<pre><code class="language-css">/* Default Card */
+.card {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: auto;
+    grid-template-rows: min-content auto auto auto minmax(0, 1fr);
+    grid-template-areas:
+        "thumbnail"
+        "badges"
+        "title"
+        "votes"
+        "description";
+}
+
+.card figure {
+    grid-area: thumbnail;
+}
+      
+.card .badges {
+    grid-area: badges;
+}
+      
+.card .title {
+    grid-area: title;
+}
+      
+.card .votes {
+    grid-area: votes;
+}
+      
+.card .description {
+    grid-area: description;
+}
+
+/* Container Queries */
+.card__container {
+    container-type: inline-size;
+}
+
+/* .card__container 宽度大于 650px */
+@container (inline-size > 650px) {
+    .card {
+        grid-template-columns: 300px minmax(0, 1fr);
+        grid-template-rows: 1rem repeat(5, auto) minmax(0, 1fr);
+        grid-template-areas:
+            "thumbnail  ."
+            "thumbnail  badges"
+            "thumbnail  title"
+            "thumbnail  votes"
+            "thumbnail  description"
+            "thumbnail  button"
+            "thumbnail  .";
+        column-gap: 1.5rem;
+    }
+
+    .card button {
+        grid-area: button;
+        justify-self: start;
+        align-self: center;
+        margin: 0;
+    }
+
+    .card figure {
+        border-radius: 8px 0 0 8px;
+        aspect-ratio: 1;
+    }
+
+    .card .title,
+    .card .badges,
+    .card .votes,
+    .card .description {
+        padding: 0 1rem 0 0;
+    }
+}
+
+/* .card__container 宽度大于 820px */
+
+@container (inline-size > 820px) {
+    .card {
+        grid-template-columns: 420px minmax(0, 1fr) auto;
+        grid-template-areas:
+            "thumbnail  .            ."
+            "thumbnail  badges       lists"
+            "thumbnail  title        lists"
+            "thumbnail  votes        lists"
+            "thumbnail  description  lists"
+            "thumbnail  button       lists"
+            "thumbnail  .            .";
+    }
+}   
+</code></pre>
+</div>            
+        </section>
+        <section>
+            <h2>Style Queries</h2>
+        </section>
+        <section>
+            <img
+            src="./images/fig-03.jpg"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+            <p>CSS Container Queries vs. CSS Style Queries</p>
+            <p>容器查询用于查询容器尺寸大小，样式查询用于查询容器样式</p>
+        </section>
+        <section>
+            <img
+            src="./images/fig-04.jpg"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+            <p>样式查询仍然处于实验阶段，目前仅在 <a href="https://www.google.com/intl/en_sg/chrome/canary/">Chrome Canary</a>中实现</p>
+        </section>
+        <section>
+<div class="code">
+<pre><code class="language-css">
+@container style(border-color: lightblue) {
+    button {
+        border-color: lightblue;
+    }
+}
+</code></pre>
+</div>             
+        </section>
+        <section>
+            <img
+            src="./images/fig-05.jpg"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+            <p>它非常适用于主题切换（比如暗黑模式）、多语言 Web 网站等</p>
+        </section>
+        <section>
+            <iframe height="760" style="width: 100%;height: 80%;" scrolling="no" title="现代 Web 布局 465#: RTL Styling: Card Component with Style Queries" src="https://codepen.io/airen/embed/bGjqRrg?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                See the Pen <a href="https://codepen.io/airen/pen/bGjqRrg">
+                现代 Web 布局 465#: RTL Styling: Card Component with Style Queries</a> by Airen (<a href="https://codepen.io/airen">@airen</a>)
+                on <a href="https://codepen.io">CodePen</a>.
+              </iframe>
+              <p>请使用 Chrome Canary 查看 <a href="https://codepen.io/airen/full/bGjqRrg">Demo</a></p>
+        </section>
+        <section>
+<div class="code">
+<pre><code class="language-css">
+.card {
+    --bg-angle: to right;
+    --bg: linear-gradient(var(--bg-angle), #5521c3, #5893eb);
+    background: var(--bg, lightgrey);
+    border-radius: 12px;
+}
+      
+.card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) max-content;
+    grid-template-areas:
+        "title       icon"
+        "description icon";
+    gap: .5rem;
+    padding: 18px;
+}
+      
+.card h3 {
+    grid-area: title;
+    font-size: clamp(1.25rem, 5cqw + 1.5rem, 1.875rem);
+}
+      
+.card p {
+    grid-area: description;
+}
+      
+.card span {
+    grid-area: icon;
+    place-self: center;
+    font-size: 3rem;
+}
+      
+.card svg {
+    display: block;
+    width: 1em;
+    height: 2em;
+}
+     
+/* Style Queries */
+.card__container[dir="rtl"] {
+    --dir: rtl;
+    direction: var(--dir);
+}
+      
+      
+@container style(--dir: rtl) {
+    .card {
+        --bg-angle: to left;
+    }
+      
+    svg {
+        transform: scaleX(-1);
+    }
+}      
+</code></pre>
+</div>
+        </section>
+        <section>
+            <h2>Cascade Layers: CSS <mark>@layer</mark></h2>
+        </section>
+        <section>
+            <img
+            src="./images/fig-06.svg"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+            <p>使用BEM、ITCSS、OOCSS、CSS-in-JS、CSS Modules 和 CSS Scoped等方法论来控制级联</p>
+        </section>
+        <section>
+            <img
+            src="./images/fig-07.svg"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+            <p>使用级联图层，你可以将单个源样式切分到几个级联层中，并控制每个级联层的优先级。</p>
+            
+        </section>
+        <section>
+<div class="code">
+<pre><code class="language-css">/* 预设级联层的顺序，并且相邻级联层之间有逗号分隔 */ 
+@layer setting, tool, generic, element, object, component, utilities;
+
+@layer setting { 
+    /* 附加到级联层 setting 中的 CSS */ 
+} 
+
+@layer tool { 
+    /* 附加到级联层 tool 中的 CSS */ 
+} 
+
+@layer generic { 
+    /* 附加到级联层 generic 中的 CSS */ 
+} 
+
+@layer element { 
+    /* 附加到级联层 element 中的 CSS */ 
+} 
+
+@layer object { 
+    /* 附加到级联层 object 中的 CSS */ 
+} 
+
+@layer component { 
+    /* 附加到级联层 component 中的 CSS */ 
+} 
+
+@layer utilities { 
+    /* 附加到级联层 utilities 中的 CSS */ 
+}                   
+</code></pre>
+</div>            
+            <p>简单地说，<mark>@layer</mark> 可以通过分层的方式，让你适当控制同源规则的级联排序。</p>
+        </section>
+        <section >
+            <img
+            src="./images/fig-08.svg"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+            <p>使用级联图层，你可以将单个源样式切分到几个级联层中，并控制每个级联层的优先级。</p>
+        </section>
+        <section class="line-through">
+            <div class="code">
+<pre><code class="language-css"> 
+ul[class] {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+    
+.nav {
+    margin: 0 40px;
+}    
+</code></pre></div>       
+        </section>
+        <section>
+<div class="code">
+<pre><code class="language-css"> 
+@layer reset {
+    ul[class] {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    } 
+}
+    
+@layer components {
+    .nav {
+         margin: 0 40px;
+    }
+}
+
+/* Case 1*/
+@layer reset, base, component, utilities; /* ul 和 .nav 中的 margin 是多少？ */
+
+/* Case 2*/
+@layer utilities, component, base reset; /* ul 和 .nav 中的 margin 是多少？ */
+</code></pre></div>         
+        </section>
+        <section>
+            <h2>CSS 父选择器： <mark>:has()</mark></h2>
+        </section>
+        <section>
+            <img
+            src="./images/fig-09.webp"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+            <p><mark>:has()</mark> 选择器本质上就是 CSS 中期待已久的父选择器！</p>
+        </section>
+        <section>
+            <p>CSS 的 <mark> :has() </mark>伪类选择器和 <mark>:not() </mark> 有点相似，也被称为结构性伪类选择器，在 CSS 的函数中也称之为动态伪类函数。</p>
+            <p><mark>基于内容的变化</mark>、<mark>基于状态的变化</mark>、<mark>基于验证的变化</mark></p>
+        </section>
+        <section>
+            <img
+            src="./images/fig-10.webp"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+        </section>
+        <section>
+            <iframe height="650" style="width: 100%;height:100%;" scrolling="no" title="CSS Parent Selector" src="https://codepen.io/airen/embed/LYeoVQJ?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                See the Pen <a href="https://codepen.io/airen/pen/LYeoVQJ">
+                CSS Parent Selector</a> by Airen (<a href="https://codepen.io/airen">@airen</a>)
+                on <a href="https://codepen.io">CodePen</a>.
+              </iframe>
+        </section>
+        <section>
+<div class="code">
+<pre><code class="language-css"> 
+/* 在没有购物列表时（比如，.shopping__lists）时，页面主内容水平垂直居中 */
+main { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+/* 在含有 .shopping__lists 的 main 覆盖Flexbox的布局 */
+main:has(.shopping__lists) { 
+    align-items: flex-start; 
+    flex-direction: row; 
+    min-height: 0; 
+}
+</code></pre></div>         
+        </section>
+        <section>
+            <img
+            src="./images/fig-11.webp"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+          <p>使用 <mark>:has()</mark> 和 <mark>:not()</mark> 等选择器相互结合，实现一些更复杂的效果</p>
+        </section>
+        <section>
+            <img
+            src="./images/fig-12.webp"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+        </section>
+        <section>
+<div  class="code"><pre><code class="language-css"> 
+/* 选中”其他“选项时，对应的输入框显式 */ 
+form:has(option[value="other"]:checked) .control--other-job, 
+form:has(input[type="checkbox"][value="other"]:checked) .control--other-interests { 
+    display: block; 
+} 
+
+/* 带有 required 属性的input 对应的 lable 前添加 "❋" 提示符及样式设置 */ 
+.control:has(input:required) label::before { 
+    content: "❋"; 
+    font-size: 1em; 
+    font-weight: bolder; 
+    color: #ff0092; 
+} 
+
+/* 未含 required 属性的input 对应的 lable 前添加 "⇟" 提示符及样式设置 */ 
+.control:has(input:optional, 
+select:optional) > label:not(input + label)::before, 
+.control:has(input:optional, 
+select:optional) > span::before { 
+    content: "⇟"; 
+    font-size: 1em; 
+    font-weight: bold; 
+    color: #93ff00; 
+} 
+
+/* 输入无效值，改变输入框前标签元素文样颜色 */ 
+.control:has(input:invalid) label:not(input + label) { 
+    color: #ff3e46; 
+} 
+
+/* 输入无效值，改变输入框样式 */ 
+.control:has(input:invalid) input { 
+    border-color: #ff3e46; 
+    box-shadow: inset 0 -5px 45px rgb(207 47 127 / 20%), 0 1px 1px rgb(216 20 111 / 20%); 
+    border-color: #ff008e; 
+    color: #ff008e; 
+} 
+
+/* 输入无效值时，提示信息显示*/ 
+.control:has(input:invalid) .error { 
+    display: block; 
+} 
+
+/* 输入有效值，改变输入框前面标签元素的文本颜色 */ 
+.control:has(input:valid) label:not(input + label) { 
+    color: #0be498; 
+} 
+
+/* 输入无效值，警告提示信息显示，输入框输入有效值，警告提示信息框隐藏 */ 
+.form:has(input:invalid) .alert__error { 
+    display: flex; 
+}          
+</code></pre></div>   
+        </section>
+        <section>
+            <iframe height="700" style="width: 100%;height: 100%;" scrolling="no" title="CSS Parent Selector: Sign Up Form" src="https://codepen.io/airen/embed/eYyqpdE?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                See the Pen <a href="https://codepen.io/airen/pen/eYyqpdE">
+                CSS Parent Selector: Sign Up Form</a> by Airen (<a href="https://codepen.io/airen">@airen</a>)
+                on <a href="https://codepen.io">CodePen</a>.
+              </iframe>
+        </section>
+        <section>
+<div  class="code"><pre><code class="language-css"> 
+.grid { 
+    display: grid; 
+    grid-template: 1fr / repeat(var(—cols, 3), 1fr); 
+    grid-auto-rows: 1fr; 
+}
+    
+.grid:has(:last-child:nth-child(even)) { 
+    —cols: 2; 
+}
+    
+.grid:has(:last-child:nth-child(5)) { 
+    —cols: 2; 
+} 
+    
+.grid:has(:last-child:nth-child(5)) .item:first-child { 
+    grid-column: span 2; 
+}                
+</code></pre></div>  
+<p><mark>:has()</mark> 选择器还可以和 CSS Grid、范围选择器结合起来，构建更灵活的 Web 布局!</p>
+        </section>
+        <section>
+            <iframe height="650" style="width: 100%;height: 100%;" scrolling="no" title="Grid + quantity queries + aspect-ratio" src="https://codepen.io/michellebarker/embed/xxYrWzZ?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                See the Pen <a href="https://codepen.io/michellebarker/pen/xxYrWzZ">
+                Grid + quantity queries + aspect-ratio</a> by Michelle Barker (<a href="https://codepen.io/michellebarker">@michellebarker</a>)
+                on <a href="https://codepen.io">CodePen</a>.
+              </iframe>
+        </section>
+        <section>
+            <h2>颜色函数</h2>
+        </section>
+        <section>
+            <img
+            src="./images/fig-13.webp"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+        </section>
+        <section>
+            <img
+            src="./images/fig-14.webp"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+        </section>
+        <section>
+<div  class="code"><pre><code class="language-css"> 
+:root {
+    --color: #f00;
+}
+
+/* 改变透明度 */
+.box {
+    color: hsl(from var(--color) h s l / .5);
+}
+
+/* 改变色相 HUE */
+.box {
+    color: hsl(from var(--color) calc(h + 180deg) s l);
+}
+
+/* 改变饱和度 */
+.box {
+    color: hsl(from var(--color) h calc(s + 5%) l);
+}
+</code></pre></div>             
+        </section>
+        <section>
+            <img
+            src="./images/fig-15.webp"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+          <p><mark>color-mix()</mark>允许你在一个给定的颜色空间中混合两种颜色。​</p>
+        </section>
+        <section>
+<div  class="code"><pre><code class="language-css"> 
+:root{
+    -–primary-1: #ff0;
+    --primary-2: #f00;
+    -–primary-3: #00f;
+
+    --tertiary-1: color-mix(in srgb, var(--primary-1) 50%, var(--secondary-1));
+    --tertiary-2: color-mix(in srgb, var(--secondary-1) 50%, var(--primary-2));
+    --tertiary-3: color-mix(in srgb, var(--primary-2) 50%, var(--secondary-2));
+    --tertiary-4: color-mix(in srgb, var(--secondary-2) 50%, var(--primary-3));
+    --tertiary-5: color-mix(in srgb, var(--primary-3) 50%, var(--secondary-3));
+    --tertiary-6: color-mix(in srgb, var(--secondary-3) 50%, var(--primary-1));
+}
+</code></pre></div>
+        </section>
+        <section>
+            <iframe height="650" style="width: 100%;height: 100%;" scrolling="no" title="CSS Color-Mix - Color Space Demo" src="https://codepen.io/smashingmag/embed/ZErMBOy?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                See the Pen <a href="https://codepen.io/smashingmag/pen/ZErMBOy">
+                CSS Color-Mix - Color Space Demo</a> by Smashing Magazine (<a href="https://codepen.io/smashingmag">@smashingmag</a>)
+                on <a href="https://codepen.io">CodePen</a>.
+              </iframe>
+        </section>
+        <section>
+            <iframe title="vimeo-player" src="https://player.vimeo.com/video/717996445?h=ebc6eb3a6c" width="640" height="244" frameborder="0" allowfullscreen style="width: 100%;height: 100%;"></iframe>
+        </section>
+        <section>
+            <img
+            src="./images/fig-16.webp"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+          <p><mark>color-contrast()</mark>用于构建可访问性 Web 的时候特别有用。其主要作用是获取一个颜色值，并将其与其他颜色的列表进行比较，从列表中选择对比度最高的一个。​</p>
+        </section>
+        <section>
+<div  class="code"><pre><code class="language-css"> 
+p {
+    color-contrast(white vs red, white, green);
+} 
+</code></pre></div>
+        </section>
+        <section>
+            <img
+            src="./images/fig-17.webp"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+          <p><mark>color-contrast(white vs red, white, green)</mark>，分别会拿 <mark>red</mark> 、<mark>white</mark> 和 <mark>green</mark> 与 <mark>white</mark> 进行对比，其中 <mark>green</mark> 和 <mark>white</mark> 对比度最高，最终会取 <mark>green</mark> 颜色</p>
+        </section>
+        <section>
+            <h2><mark>accent-color</mark></h2>
+        </section>
+        <section>
+            <img
+            src="./images/fig-18.webp"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+          <p>Web 中有很多控件的 UI 效果是跟随系统走的</p>
+        </section>
+        <section>
+<div  class="code"><pre><code class="language-css"> 
+:root { 
+    accent-color: deeppink; 
+}
+
+@media (prefers-color-scheme: dark) { 
+    :root { 
+        accent-color: hsl(328 100% 65%); 
+    }
+}
+</code></pre></div>
+<img
+            src="./images/fig-19.webp"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+        </section>
+        <section>
+            <h2><mark>theme-color</mark></h2>
+        </section>
+        <section>
+            <img
+            src="./images/fig-20.webp"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+          <p>HTML 的 <mark>&lt;meta&gt;</mark> 标签为 <mark>theme-color</mark> 设置颜色，让浏览器自身的 UI 颜色有让开发者来控制</p>
+        </section>
+        <section>
+<div  class="code"><pre><code class="language-html">   
+&lt;meta name="theme-color" content="#f3e1d8"&gt;
+</code></pre></div>    
+<p>首先在<mark>&lt;meta&gt;</mark>标签上设置 <mark>theme-color </mark>的值</p>
+        </section>
+        <section>
+<div  class="code"><pre><code class="language-css"> 
+:root{ 
+    --color-bg: #ffffff; 
+    --color-bg-offset: #f7f7f9; 
+    --color-text: #373a3c; 
+    --color-text-offset: #818a91; 
+    --color-border: #eceeef; 
+    --color-primary: #ff335f; 
+    --color-primary-offset: #ff1447; 
+    --color-secondary: #43a9a3; 
+}
+</code></pre></div>    
+<p>在 <mark>:root </mark>定义页面元素背景和文本所需要的定义属性</p> 
+        </section>
+        <section>
+<div  class="code"><pre><code class="language-javascript">
+// 仅展示用 
+button.addEventListener('click', e => { 
+    document.querySelector('meta[name="theme-color"]').setAttribute("content", '#252526') 
+    document.documentElement.style.setProperty('--color-bg', '#252526') 
+})
+</code></pre></div>  
+<p>借助 JavaScript 脚本来改变这些值</p>  
+        </section>
+        <section>
+            <img
+            src="./images/fig-21.webp"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+          <p> <a href="https://david.darn.es/">Dave 的博客</a>，他在他的博客模板中只使用了一行代码</p>
+<div  class="code"><pre><code class="language-html">
+&lt;meta name="theme-color" content="{% if page.colour %}{{ page.colour }}{% else %}#f2eac9{% endif %}"&gt;
+</code></pre></div>    
+        </section>
+        <section>
+            <img
+            src="./images/fig-22.jpg"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+          <p>和Progress Bar 结合起来，完成不同的步数就改变 <mark>theme-color</mark> 的值</p>
+        </section>
+        <section>
+            <iframe height="650" style="width: 100%;height: 100%;" scrolling="no" title="Progress Steps: theme-color" src="https://codepen.io/airen/embed/BaRRVMz?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                See the Pen <a href="https://codepen.io/airen/pen/BaRRVMz">
+                Progress Steps: theme-color</a> by Airen (<a href="https://codepen.io/airen">@airen</a>)
+                on <a href="https://codepen.io">CodePen</a>.
+              </iframe>
+        </section>
+        <section>
+            <h2>CSS Subgrid</h2>
+        </section>
+        <section>
+            <img
+            src="./images/fig-23.jpg"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+          <p>每张卡片由一个标题 、缩略图和正文三个部分组成</p>
+        </section>
+        <section><img
+            src="./images/fig-24.jpg"
+            referrerpolicy="no-referrer"
+            alt="img"
+          /></section>
+        <section>
+            <img
+            src="./images/fig-25.jpg"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+        </section>
+        <section>
+            <img
+            src="./images/fig-26.jpg"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+        </section>
+        <section>
+<div  class="code"><pre><code class="language-html">
+&lt;div class="container"&gt;
+    &lt;!-- Card --&gt;
+    &lt;div class="card"&gt;
+        &lt;h3&gt;卡片标题&lt;/h3&gt;
+        &lt;figure&gt;&lt;img src="" alt="" /&gt;&lt;/figure&gt;&lt;!-- 卡片缩略图 --&gt;
+        &lt;p&gt; 卡片描述 &lt;/p&gt;
+    &lt;/div&gt;
+        
+    &lt;!-- 省略多个 card 结构 --&gt;
+    &lt;div class="card"&gt;
+        &lt;h3&gt;卡片标题&lt;/h3&gt;
+        &lt;figure&gt;&lt;img src="" alt="" /&gt;&lt;/figure&gt;&lt;!-- 卡片缩略图 --&gt;
+        &lt;p&gt; 卡片描述 &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div>               
+</code></pre></div> 
+        </section>
+        <section>
+<div  class="code"><pre><code class="language-css">  
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100% -2rem, 300px), 1fr));
+    gap: 1rem;
+}
+</code></pre></div>     
+<p>在卡片外部容器，我们可以使用 RAM 布局技术来实现</p> 
+        </section>
+        <section>
+<div  class="code"><pre><code class="language-css">  
+.card {
+    grid-row: span 3;
+}
+</code></pre></div> 
+<p>每张卡片在块轴方向跨越三个行网格轨道</p>
+        </section>
+        <section>
+            <img
+            src="./images/fig-27.jpg"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+        </section>
+        <section>
+            <img
+            src="./images/fig-28.jpg"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+        </section>
+        <section>
+<div  class="code"><pre><code class="language-css">  
+.card {
+    /* 创建一个网格 */
+    display: inherit;
+                
+    /* 继承父网格的网格轨道 */
+    grid-template-rows: subgrid;
+                
+    /* 重置网格轨道之间的间距*/
+    gap: 0;
+}
+</code></pre></div> 
+        </section>
+        <section>
+            <iframe height="650" style="width: 100%; height: 100%;" scrolling="no" title="现代 Web 布局 239#： 子网格" src="https://codepen.io/airen/embed/OJEXerm?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                See the Pen <a href="https://codepen.io/airen/pen/OJEXerm">
+                现代 Web 布局 239#： 子网格</a> by Airen (<a href="https://codepen.io/airen">@airen</a>)
+                on <a href="https://codepen.io">CodePen</a>.
+              </iframe>
+        </section>
+        <section>
+            <h2>CSS Media Queries</h2>
+        </section>
+        <section>
+            <img
+            src="./images/fig-29.jpg"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+        </section>
+        <section>
+            <img
+            src="./images/fig-30.jpg"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+        </section>
+        <section>
+            <img
+            src="./images/fig-31.jpg"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+        </section>
+        <section>
+            <img
+            src="./images/fig-32.jpg"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+        </section>
+        <section>
+<div  class="code"><pre><code class="language-css"> 
+/* Old Way */
+@media (max-width: 768px) {
+   /* CSS… */
+}
+
+@media (min-width: 375px) {
+    /* CSS… */
+}
+
+@media (min-width: 375px) and (max-width: 768px) {
+    /* CSS… */
+}
+
+/* New Way */
+@media (width <= 768px) {
+    /* CSS… */
+}
+
+@media (width >= 375px) {
+    /* CSS… */
+}
+
+@media (375px <= width <= 768px) {
+    /* CSS… */
+}  
+</code></pre></div>             
+        </section>
+      <section>
+        <h2>视窗单位</h2>
+      </section>
+      <section>
+        <img
+            src="./images/fig-33.jpg"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+      </section>
+      <section>
+        <img
+            src="./images/fig-34.jpg"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+      </section>
+      <section>
+        <img
+            src="./images/fig-35.png"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+      </section>
+      <section>
+        <img
+            src="./images/fig-36.jpg"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+      </section>
+      <section>
+        <img
+            src="./images/fig-37.jpg"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+      </section>
+      <section>
+        <h2>容器查询单位</h2>
+      </section>
+      <section>
+        <img
+            src="./images/fig-38.jpg"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+          <p>视窗单位是相对于浏览器视窗尺寸计算；容器查询单位是相对于查询容器尺寸计算</p>
+      </section>
+      <section>
+        <ul>
+            <li><mark>1cqw</mark> 等于查询容器宽度（<mark>width</mark>）的 <mark>1%</mark></li> 
+<li><mark>1cqh</mark> 等于查询容器高度（<mark>height</mark>）的 1%</mark> </li>
+<li><mark>1cqi</mark> 等于查询容器内联大小（<mark>inline-size</mark>）的 <mark>1%</mark> </li>
+<li><mark>1cqb</mark> 等于查询容器块大小（<mark>block-size</mark>）的 <mark>1%</mark></li> 
+<li><mark>1cqmin</mark> 等于 <mark>1cqi</mark> 或 <mark>1cqb</mark> 中较小的一个值 </li>
+<li><mark>1cqmax</mark> 等于 <mark>1cqi</mark> 或 <mark>1cqb</mark> 中较大的一个值 </li>
+        </ul>
+      </section>
+      <section>
+<div  class="code"><pre><code class="language-css"> 
+.card__title {
+    font-size: 1rem;
+}
+
+/* 容器宽度大于 400px */
+@container (width > 400px) {
+    .card__title {
+        font-size: 1.15rem;
+    }
+}
+
+/* 容器宽度大于 600px */
+@container (width > 600px) {
+    .card__title {
+        font-size: 1.25rem;
+    }
+}
+
+/* 容器宽度大于 800px */
+@container (width > 800px){
+    .card__title {
+        font-size: 2rem;
+    }
+}
+</code></pre></div>                    
+      </section>
+      <section>
+<div  class="code"><pre><code class="language-css"> 
+.card__title {
+    font-size: clamp(1rem, 3cqw, 2rem);
+}
+</code></pre></div>                    
+      </section>
+      <section>
+<div  class="code"><pre><code class="language-css"> 
+/* 视窗单位设置 font-size */
+.card__title {
+    font-size: clamp(1.2rem, 5vw + 1rem, 3rem);
+}
+    
+/* 容器查询单位设置 font-size */
+.card__title {
+    font-size: clamp(1.2rem, 5cqi + 1rem, 3rem);
+}
+</code></pre></div>                    
+              </section>
+              <section>
+                <img
+            src="./images/fig-39.jpg"
+            referrerpolicy="no-referrer"
+            alt="img"
+          />
+              </section>
+              <section>
+                <iframe height="650" style="width: 100%;height: 100%;" scrolling="no" title="现代 Web 布局 461#: Container Units" src="https://codepen.io/airen/embed/gOjWdPL?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/airen/pen/gOjWdPL">
+                    现代 Web 布局 461#: Container Units</a> by Airen (<a href="https://codepen.io/airen">@airen</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                  </iframe>
+                  <p>by <a href="https://codepen.io/scottkellum">@Scott Kellum</a></p>
+              </section>
+              <section>
+                <h2>QA & Thanks You Very Much!</h2>
+              </section>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <!-- <script>
+        let sections = document.querySelectorAll("section");
+
+        sections.forEach((section) => {
+            section.addEventListener("click", (etv) => {
+  if (!document.fullscreenElement) {
+    section.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+});
+        })
+
+
+    </script> -->
+  </body>
+</html>
